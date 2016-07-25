@@ -10,9 +10,7 @@ module Tele2
     end
   
     def to_s
-      if @amount >= TB
-        format '%.1f TB', @amount / TB
-      elsif @amount >= GB
+      if @amount >= GB
         format '%.1f GB', @amount / GB
       else
         format '%.0f MB', @amount
