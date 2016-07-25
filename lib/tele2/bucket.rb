@@ -24,6 +24,12 @@ module Tele2
         (@buckets ||= []) << klass
       end
     end
+    
+    # Initialize
+    #
+    # Create a new bucket from a hash describing the bucket. The hash is the
+    # result of the parsed JSON response from Tele2, meaing this class is
+    # generally only instantiated after a request to the HTTP API.
   
     def initialize(bucket)
       @label = bucket['description']
