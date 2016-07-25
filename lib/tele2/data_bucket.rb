@@ -2,8 +2,13 @@
 
 module Tele2
   class DataBucket < Bucket
-    def self.match(json)
-      json['bucketType'] == 4
+    
+    # Match
+    #
+    # Returns true if the given raw bucket represents a DataBucket.
+    
+    def self.match(bucket)
+      bucket['bucketType'] == 4
     end
   
     def initialize(bucket)

@@ -7,6 +7,17 @@ describe Tele2::Bucket do
 
   let(:example_data) { TestHelper.example_sms_bucket }
   let(:bucket) { subject.new example_data }
+  
+  describe '.to_json' do
+    it 'parses a JSON object' do
+      buckets = subject.from_json TestHelper.example_json
+      
+      assert_kind_of Tele2::DataBucket, buckets[0]
+      assert_kind_of Tele2::SMSBucket, buckets[1]
+      assert_kind_of Tele2::MMSBucket, buckets[2]
+      assert_kind_of Tele2::Bucket, buckets[3]
+    end
+  end
 
   describe '#total' do
     it 'returns the total data' do

@@ -2,8 +2,19 @@
 
 module Tele2
   class MMSBucket < Bucket
-    def self.match(json)
-      json['bucketType'] == 0 && json['description'] == 'MMS'
+    
+    # Match
+    #
+    # Returns true if the given raw bucket represents a MMSBucket.
+    
+    def self.match(bucket)
+      bucket['bucketType'] == 0 && bucket['description'] == 'MMS'
+    end
+    
+    def initialize(bucket)
+      @label = bucket['description']
+      @total = MMS.new bucket['total']
+      @used = MMS.new (bucket['usedPercentage'] / 100 * @total)
     end
   end
 end

@@ -66,4 +66,32 @@ module TestHelper
       "showPercentage"=>true
     }
   end
+  
+  def example_unknown_bucket
+    total = Random.rand(1000.0..3000.0).round
+    used = Random.rand(0.0..100.0).round(1)
+    to_be_restored = Date.today + Random.rand(1..30)
+
+    {
+      "usedPercentage"=>used,
+      "leftToUsePercentage"=>100 - used,
+      "used"=>(used / 100 * total).round.to_s,
+      "leftToUse"=>((1 - used / 100) * total).round.to_s,
+      "description"=>"unknown",
+      "bucketType"=>0,
+      "unitString"=>" st",
+      "toBeRestoredString"=>to_be_restored.to_s,
+      "total"=>total,
+      "showPercentage"=>true
+    }
+  end
+  
+  def example_json
+    JSON.generate 'listOfBuckets' => [
+      example_data_bucket,
+      example_sms_bucket,
+      example_mms_bucket,
+      example_unknown_bucket
+    ]
+  end
 end
