@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sebastian Lindberg"]
   spec.email         = ["seb.lindberg@gmail.com"]
 
-  spec.summary       = %q{Library and executable for downloading usage from Tele2.}
+  spec.summary       = %q{Library and executable for downloading usage data from Tele2.}
   #spec.description   = %q{TODO: Write a longer description or delete this line.}
-  #spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/seblindberg/ruby-tele2"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
