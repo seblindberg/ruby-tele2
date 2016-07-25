@@ -22,7 +22,7 @@ describe Tele2::SMS do
 
   describe '#to_f' do
     it 'returns the float amount' do
-      assert_equal amount.to_f, amount.to_f
+      assert_equal amount.to_f, sms.to_f
     end
   end
 
